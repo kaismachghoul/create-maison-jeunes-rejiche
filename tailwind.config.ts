@@ -16,6 +16,7 @@ const config: Config = {
           azure: "#1C7FA8",
           foam: "#E8F3F2",
         },
+        foam: "#E8F3F2",
         limestone: "#F4EEE3",
         sand: "#E7D6BC",
         terracotta: "#C2643D",

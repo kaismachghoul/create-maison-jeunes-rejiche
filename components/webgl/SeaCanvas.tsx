@@ -164,11 +164,16 @@ export default function SeaCanvas() {
     io.observe(mount);
 
     let raf = 0;
+    let elapsed = 0;
     const clock = new THREE.Clock();
     const loop = () => {
       raf = requestAnimationFrame(loop);
+      // Always consume the frame delta so it stays small; only advance the
+      // shader clock while visible, so time truly freezes off-screen (no jump).
+      const delta = clock.getDelta();
       if (!visible) return;
-      uniforms.uTime.value = clock.getElapsedTime();
+      elapsed += delta;
+      uniforms.uTime.value = elapsed;
       uniforms.uPointer.value.lerp(pointerTarget, 0.04);
       renderer.render(scene, camera);
     };

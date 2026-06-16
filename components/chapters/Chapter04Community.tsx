@@ -22,29 +22,34 @@ export default function Chapter04Community() {
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const track = trackRef.current;
     const section = sectionRef.current;
-    if (reduce || !track || !section || window.innerWidth < 768) return;
+    if (!track || !section) return;
 
     gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      const distance = () => track.scrollWidth - window.innerWidth;
-      gsap.to(track, {
-        x: () => -distance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${distance()}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-    }, section);
+    // matchMedia rebuilds/reverts the pin automatically when crossing the 768px
+    // breakpoint or toggling reduced-motion — no stale pin on resize/rotate.
+    const mm = gsap.matchMedia();
+    mm.add(
+      "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+      () => {
+        const distance = () => track.scrollWidth - window.innerWidth;
+        gsap.to(track, {
+          x: () => -distance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: () => `+=${distance()}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+    );
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
