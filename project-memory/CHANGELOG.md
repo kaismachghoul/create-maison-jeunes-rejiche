@@ -41,4 +41,20 @@ A running, human-readable log of what changed and when. Newest first.
   builds/reverts cleanly across the 768px breakpoint and reduced-motion changes.
 - Initialised git; verified `npm run build` clean after fixes.
 
+## 2026-06-16 — Real media dispatched
+
+- Received the `allimages` set (25 files). **Classified every image by viewing it** and
+  mapped 20 photos to chapter slots (full table in `ASSETS_MAP.md`); wired the official
+  **logo** into the preloader. Source archive moved to `./media-source/` (out of
+  `public/` so it isn't served/bundled).
+- Highlights: dusk fishing harbour → Horizon/Future (bookend); web-radio studio +
+  painted « شباب » wall → The House; mural day + media/art workshops → Creative;
+  art class, cooking workshops, mural-together → Community; bendir troupe + young
+  drummer + dance → Expression; solo performer → Future; "Chebeb Show 2015" poster →
+  Join.
+- **Gap:** Chapter 06 (Movement) has no sport/beach photos in the set → stays on
+  placeholders (flagged in `KNOWN_ISSUES.md`).
+- Verified: build clean; all 20 photos + logo serve 200 with real bytes and appear in
+  the SSR HTML.
+
 <!-- Append new entries above this line. Keep each entry short and scannable. -->

@@ -2,8 +2,15 @@
 
 Status: 🔴 open · 🟡 watching · ✅ resolved
 
-- 🟡 **Authentic media missing.** Site runs on generated placeholders. Replace with
-  real Rejiche photos/videos before any public launch (see `ASSETS_MAP.md`).
+- ✅ **Authentic media wired (2026-06-16).** 20 real Maison des Jeunes de Rejiche
+  photos classified by content and mapped to chapter slots; official logo in the
+  preloader. Source archive in `./media-source/`. See `ASSETS_MAP.md`.
+- 🔴 **Chapter 06 (Movement) has no photos.** No sport/beach shots in the provided set,
+  so both Movement slots render placeholders. Needs beach-volley/swim/training photos.
+- 🟡 **Logo is a 1.4 MB PNG.** Fine for now (preloader only) but worth compressing /
+  converting to optimized PNG or SVG before launch.
+- 🟡 **Photo rights/consent.** Several images show minors. Confirm consent before any
+  public launch.
 - 🟡 **Institution facts unverified.** Hard facts about the Maison des Jeunes de
   Rejiche are thin online. Copy is written to be emotionally true and non-specific;
   verify dates/programs with the center before publishing. See `DELIVERABLES.md` §1.

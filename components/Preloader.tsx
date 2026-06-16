@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FACTS } from "@/lib/content";
+import { LOGO_SRC } from "@/lib/media";
 
 /** A brief cinematic curtain — the tide pulling back to reveal the experience. */
 export default function Preloader() {
@@ -28,6 +29,12 @@ export default function Preloader() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={LOGO_SRC}
+              alt="Maison des Jeunes de Rejiche"
+              className="mb-2 h-16 w-auto"
+            />
             <span
               className="font-arabic text-2xl text-foam/80"
               dir="rtl"

@@ -1,9 +1,12 @@
 // Media manifest. The site is media-optional (project-memory/DECISIONS.md D-003).
 //
-// HOW TO ADD REAL MEDIA:
+// HOW TO ADD / CHANGE MEDIA:
 //   1. Drop files into  public/media/<folder>/  (see project-memory/ASSETS_MAP.md)
 //   2. Set the slot's `src` below to "/media/<folder>/<file>"
-//   Until then, every slot renders a generated placeholder — the site is complete now.
+//   Slots without a `src` render a generated placeholder, so the site is always complete.
+//
+// Current state: wired to the real Maison des Jeunes de Rejiche photo set
+// (classified by content — see project-memory/ASSETS_MAP.md for the full mapping).
 
 export type MediaKind = "image" | "video";
 export type Tone = "sea" | "night" | "sand" | "terracotta" | "olive" | "copper";
@@ -24,43 +27,124 @@ function inferKind(src?: string): MediaKind {
 const SLOTS: Record<string, MediaSlot> = {
   // — Chapter 01 · Horizon ——————————————————————————————
   "horizon.hero": { caption: "Le rivage de Rejiche, eau turquoise au matin", tone: "sea" },
-  "horizon.shore": { caption: "3,2 km de sable — la plage de Rejiche", tone: "sand" },
+  "horizon.shore": {
+    src: "/media/horizon/dusk-harbour.jpg",
+    caption: "Barques de pêche au crépuscule, le rivage de Rejiche",
+    tone: "sea",
+  },
   "horizon.light": { caption: "La lumière du Sahel sur la Méditerranée", tone: "copper" },
 
   // — Chapter 02 · The House —————————————————————————————
-  "house.exterior": { caption: "La Maison des Jeunes — Avenue Farhat Hached", tone: "sand" },
-  "house.interior": { caption: "À l'intérieur : où tout commence", tone: "olive" },
-  "house.radio": { caption: "Radio Web Dar Chabab Rejiche — la voix des jeunes", tone: "terracotta" },
+  "house.exterior": {
+    src: "/media/house/exterior-signage.jpg",
+    caption: "Les murs de la Maison des Jeunes — « شباب », jeunesse",
+    tone: "sand",
+  },
+  "house.interior": {
+    src: "/media/house/art-studio.jpg",
+    caption: "L'atelier d'arts plastiques, où tout commence",
+    tone: "olive",
+  },
+  "house.radio": {
+    src: "/media/house/web-radio.jpg",
+    caption: "Le studio — ordinateurs, console, micro : la web radio des jeunes",
+    tone: "terracotta",
+  },
 
   // — Chapter 03 · Creative ——————————————————————————————
-  "creative.workshop": { caption: "Atelier — les mains apprennent", tone: "terracotta" },
-  "creative.art": { caption: "Arts plastiques — un dessin parti jusqu'au Japon", tone: "copper" },
-  "creative.making": { caption: "Fabriquer, essayer, recommencer", tone: "olive" },
-  "creative.wide": { caption: "L'énergie d'un après-midi de création", tone: "night" },
+  "creative.workshop": {
+    src: "/media/creative/media-workshop.jpg",
+    caption: "Atelier vidéo : régler la caméra, capter l'instant",
+    tone: "terracotta",
+  },
+  "creative.art": {
+    src: "/media/creative/mural-art.jpg",
+    caption: "Peindre à même le mur — la fresque prend vie",
+    tone: "copper",
+  },
+  "creative.making": {
+    src: "/media/creative/wall-painting.jpg",
+    caption: "Calligraphie et formes : fabriquer, essayer, recommencer",
+    tone: "olive",
+  },
+  "creative.wide": {
+    src: "/media/creative/mural-day.jpg",
+    caption: "Une journée de fresque collective sur les murs blancs",
+    tone: "night",
+  },
 
   // — Chapter 04 · Community (memory wall) ———————————————
-  "community.1": { caption: "Visages, instant partagé", tone: "sand" },
-  "community.2": { caption: "Ensemble, au bord de l'eau", tone: "sea" },
-  "community.3": { caption: "Un éclat de rire", tone: "terracotta" },
-  "community.4": { caption: "Génération après génération", tone: "olive" },
-  "community.5": { caption: "Le camp d'été", tone: "copper" },
-  "community.6": { caption: "Appartenir", tone: "sea" },
+  "community.1": {
+    src: "/media/community/art-class.jpg",
+    caption: "L'atelier d'art, tous ensemble",
+    tone: "sand",
+  },
+  "community.2": {
+    src: "/media/community/mural-together.jpg",
+    caption: "Peindre la fresque, à plusieurs mains",
+    tone: "sea",
+  },
+  "community.3": {
+    src: "/media/community/cooking-workshop.jpg",
+    caption: "Atelier de cuisine traditionnelle",
+    tone: "terracotta",
+  },
+  "community.4": {
+    src: "/media/community/mural-wide.jpg",
+    caption: "La fresque, le drapeau, le quartier",
+    tone: "olive",
+  },
+  "community.5": {
+    src: "/media/community/kitchen.jpg",
+    caption: "Préparer le repas, transmettre les gestes",
+    tone: "copper",
+  },
+  "community.6": {
+    src: "/media/community/painting-hands.jpg",
+    caption: "Des lettres, des couleurs, des mains",
+    tone: "sea",
+  },
 
   // — Chapter 05 · Expression —————————————————————————————
-  "expression.stage": { caption: "Sur scène — la première fois", tone: "night" },
-  "expression.music": { caption: "Musique : une langue commune", tone: "terracotta" },
-  "expression.dance": { caption: "Danse, corps, mouvement", tone: "copper" },
+  "expression.stage": {
+    src: "/media/expression/bendir-troupe.jpg",
+    caption: "La troupe de bendir sur scène — العرض النهائي",
+    tone: "night",
+  },
+  "expression.music": {
+    src: "/media/expression/young-drummer.jpg",
+    caption: "Un jeune percussionniste, son premier solo",
+    tone: "terracotta",
+  },
+  "expression.dance": {
+    src: "/media/expression/dance.jpg",
+    caption: "Danse sur scène — Chabeb Show",
+    tone: "copper",
+  },
 
   // — Chapter 06 · Movement ——————————————————————————————
-  "movement.beach": { caption: "Beach-volley sur la plage de Rejiche", tone: "sea" },
+  // No sport/beach photos in the provided set — placeholders, flagged in ASSETS_MAP.md.
+  "movement.beach": { caption: "La mer de Rejiche, terrain grandeur nature", tone: "sea" },
   "movement.sport": { caption: "Le sport, première passion des Maisons des Jeunes", tone: "olive" },
 
   // — Chapter 07 · Future ————————————————————————————————
-  "future.portrait": { caption: "Celles et ceux qui inventent la suite", tone: "copper" },
-  "future.dusk": { caption: "Le crépuscule sur le port de Mahdia", tone: "night" },
+  "future.portrait": {
+    src: "/media/future/portrait.jpg",
+    caption: "Celle qui prend le micro et invente la suite",
+    tone: "copper",
+  },
+  "future.dusk": {
+    src: "/media/future/dusk-port.jpg",
+    caption: "Crépuscule sur le port — retour vers la mer",
+    tone: "night",
+  },
 
   // — Chapter 08 · Join ——————————————————————————————————
-  "join.poster": { caption: "Le prochain rendez-vous", tone: "terracotta" },
+  "join.poster": {
+    src: "/media/join/chebeb-show-2015.jpg",
+    caption: "Chebeb Show — l'affiche du rendez-vous",
+    tone: "terracotta",
+  },
 };
 
 export function getMedia(key: string): MediaSlot & { kind: MediaKind } {
@@ -76,3 +160,6 @@ export const TONE_GRADIENT: Record<Tone, [string, string, string]> = {
   olive: ["#6E7A4F", "#3E4A2C", "#C9B084"],
   copper: ["#B87333", "#7E4A1E", "#E7D6BC"],
 };
+
+/** Brand mark (official Maison des Jeunes logo). */
+export const LOGO_SRC = "/media/brand/logo.png";
