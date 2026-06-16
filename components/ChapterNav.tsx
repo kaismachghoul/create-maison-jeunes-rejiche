@@ -53,7 +53,7 @@ export default function ChapterNav() {
       <button
         onClick={() => go("horizon")}
         className="fixed left-5 top-5 z-50 text-left mix-blend-difference sm:left-8 sm:top-7"
-        aria-label="Retour au début"
+        aria-label="Rejiche — Maison des Jeunes, retour au début"
       >
         <span className="block font-serif text-base leading-none tracking-tight text-white">
           Rejiche
@@ -104,7 +104,10 @@ export default function ChapterNav() {
         aria-label="Index des chapitres"
         aria-expanded={open}
       >
-        <span className="font-sans text-[0.6rem] tabular-nums tracking-widest">
+        <span
+          aria-hidden="true"
+          className="font-sans text-[0.6rem] tabular-nums tracking-widest"
+        >
           {CHAPTERS[active].index}
         </span>
       </button>
