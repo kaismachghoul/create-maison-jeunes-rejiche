@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --limestone: #f4eee3;
+  --sea-deep: #08293b;
+  --ink: #10202a;
+  --foam: #e8f3f2;
+  --ease-sea: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--limestone);
+    color: var(--ink);
+    font-family: var(--font-grotesk), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Lenis is in control of scroll; opt out of native smooth behaviour. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: #c2643d;
+    color: #f4eee3;
+  }
+
+  /* Quiet, themed scrollbar */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c7fa8;
+    border-radius: 9px;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1c7fa8;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Eyebrow / label */
+  .eyebrow {
+    @apply font-sans uppercase text-[0.7rem] sm:text-xs tracking-[0.32em] font-medium;
+  }
+
+  /* Fluid oversized display title */
+  .display {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 600;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    font-size: clamp(3rem, 11.5vw, 13rem);
+  }
+
+  .display-md {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 600;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    font-size: clamp(2.2rem, 6.5vw, 5.5rem);
+  }
+
+  .lede {
+    font-size: clamp(1.05rem, 1.9vw, 1.6rem);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Limestone grain / texture overlay */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+
+  /* Mask reveal helper used by KineticTitle lines */
+  .line-mask {
+    overflow: hidden;
+    display: block;
+  }
+}
+
+/* Reduced motion: strip transforms/animation, keep everything legible. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
