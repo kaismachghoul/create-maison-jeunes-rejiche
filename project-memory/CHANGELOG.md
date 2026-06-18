@@ -57,4 +57,12 @@ A running, human-readable log of what changed and when. Newest first.
 - Verified: build clean; all 20 photos + logo serve 200 with real bytes and appear in
   the SSR HTML.
 
+## 2026-06-19 — Real Facebook page
+
+- **Fix:** the Facebook link was a guessed handle (`facebook.com/MJ.Rejiche`) that didn't
+  resolve. Wired in the real page (`profile.php?id=100080065081408`) in `lib/content.ts`
+  (`FACTS.facebook`), so the Chapter 08 contact card and "Suivre" CTA now point at the
+  actual page. Display label changed from the dead handle to "Maison des Jeunes de
+  Rejiche". Updated stale references in `DELIVERABLES.md`.
+
 <!-- Append new entries above this line. Keep each entry short and scannable. -->

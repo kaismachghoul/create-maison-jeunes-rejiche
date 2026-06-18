@@ -109,7 +109,7 @@ export const FACTS = {
   network: "Réseau des Maisons des Jeunes · Ministère de la Jeunesse et des Sports",
   address: "Avenue Farhat Hached, 5121 Rejiche — Mahdia, Tunisie",
   phone: "+216 73 687 980",
-  facebook: "https://www.facebook.com/MJ.Rejiche",
+  facebook: "https://www.facebook.com/profile.php?id=100080065081408",
   radio: "https://radiorajiche.net",
   founded: "Réseau pionnier dans le monde arabe depuis 1963",
 };

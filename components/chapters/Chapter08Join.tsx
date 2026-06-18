@@ -11,7 +11,7 @@ const meta = CHAPTERS[7];
 const LINKS = [
   { label: "Adresse", value: FACTS.address, href: undefined },
   { label: "Téléphone", value: FACTS.phone, href: `tel:${FACTS.phone.replace(/\s/g, "")}` },
-  { label: "Facebook", value: "facebook.com/MJ.Rejiche", href: FACTS.facebook },
+  { label: "Facebook", value: "Maison des Jeunes de Rejiche", href: FACTS.facebook },
   { label: "Radio Web", value: "radiorajiche.net", href: FACTS.radio },
 ];
 

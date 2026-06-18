@@ -11,7 +11,7 @@ emotionally true and non-specific rather than invented — flagged in `KNOWN_ISS
 **The institution is real and quietly remarkable.** *Dar Chabab Rejiche*
 (دار الشباب رجيش) is a youth house in Tunisia's national network under the **Ministry
 of Youth & Sports**, at **Avenue Farhat Hached, 5121 Rejiche – Mahdia** (tel. 73 687 980;
-Facebook: `MJ.Rejiche`). Three facts make it special and become narrative anchors:
+Facebook: profile id 100080065081408). Three facts make it special and become narrative anchors:
 
 1. It was **crowned first nationally for "best institutional project"** — a small
    coastal center punching far above its weight.
@@ -147,7 +147,7 @@ contrast from the palette, motion opt-out.
 
 ## Sources (high-signal)
 Ministry of Youth & Sports (mjs.tn) — Rejiche #1 national project · ween.tn fiche
-(address/phone) · facebook.com/MJ.Rejiche · radiorajiche.net · Jawhara FM gallery
+(address/phone) · facebook (profile 100080065081408) · radiorajiche.net · Jawhara FM gallery
 (Korean delegation) · Tunisie Numérique (Kanagawa Prize; most-practiced activities) ·
 WMC (518 institutions; 2025 targets) · Britannica/Carthage Magazine (Mahdia, silk,
 Fatimid) · Sandee (Rejich Plage 3.2 km) · CIOFF/Petit Futé (Fête de la Mer) · MUCEM ·
